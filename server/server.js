@@ -51,6 +51,10 @@ app.post("/api/form", async (req, res) => {
 	console.log(assistantRes);
 });
 
+app.get("/", (req, res) => {
+	res.send("hello world!");
+});
+
 app.listen(PORT, () => {
 	console.log(`listening on port ${PORT}`);
 });
