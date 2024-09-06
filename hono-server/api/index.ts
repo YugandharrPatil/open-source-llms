@@ -28,7 +28,7 @@ type Conversation = {
 	content: string;
 };
 
-type Model = "meta-llama/llama-3-8b-instruct:free" | "meta-llama/llama-3.1-8b-instruct:free";
+type Model = "meta-llama/llama-3-8b-instruct:free" | "meta-llama/llama-3.1-8b-instruct:free" | "mistralai/mistral-7b-instruct:free";
 
 type ResponseBody = {
 	conversation: Conversation[];

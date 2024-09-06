@@ -77,9 +77,15 @@ export default function Index() {
 		<main className="container mt-8">
 			<h1 className="text-3xl text-center font-bold">Chat with OS LLMs</h1>
 			<div className="flex gap-3">
-				<Button onClick={() => setModel(models.llama3)}>Llama3</Button>
-				<Button onClick={() => setModel(models.llama3p1)}>Llama3.1</Button>
-				<Button onClick={() => setModel(models.mistral)}>Mistral</Button>
+				<Button className={model === models.llama3 ? "underline font-bold" : ""} onClick={() => setModel(models.llama3)}>
+					Llama3
+				</Button>
+				<Button className={model === models.llama3p1 ? "underline font-bold" : ""} onClick={() => setModel(models.llama3p1)}>
+					Llama3.1
+				</Button>
+				<Button className={model === models.mistral ? "underline font-bold" : ""} onClick={() => setModel(models.mistral)}>
+					Mistral
+				</Button>
 			</div>
 			<h3 className="text-xl text-center">
 				Current Model: <span className="font-bold">{model === models.llama3 ? "Llama3" : model === models.llama3p1 ? "Llama3.1" : model === models.mistral ? "Mistral" : ""}</span>
