@@ -2,7 +2,7 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 
 // FORM
 import { zodResolver } from "@hookform/resolvers/zod";
-import { parse } from "circular-json";
+import { parse } from "flatted";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -52,14 +52,14 @@ export default function Index() {
 	// const [response, setResponse] = useState<Message[]>();
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		const productionURL = "https://open-source-llms-sj2h.vercel.app/api/form";
-		// const developmentURL = "http://localhost:5000/api/form";
+		// const productionURL = "https://open-source-llms-sj2h.vercel.app/api/form";
+		const developmentURL = "http://localhost:5000/api/form";
 		try {
 			// add user input to array
 			// doesn't work: setMessages((prevMessages: Message[]) => [...prevMessages, { role: "user", content: input }]); // doesn't immediately add to array because of some issue
 			messages.push({ role: "user", content: values.prompt });
 			console.log(messages);
-			const { data } = await axios.post(productionURL, {
+			const { data } = await axios.post(developmentURL, {
 				conversation: messages,
 				model: model,
 			});

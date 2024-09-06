@@ -6,15 +6,17 @@
 		"deploy": "vercel"
 	},
 	"dependencies": {
+		"@hono/node-server": "^1.12.2",
 		"axios": "^1.7.7",
 		"circular-json": "^0.5.9",
 		"cors": "^2.8.5",
-		"hono": "^4.5.11",
-		"@hono/node-server": "^1.12.2"
+		"flatted": "^3.3.1",
+		"hono": "^4.5.11"
 	},
 	"devDependencies": {
-		"vercel": "^32.4.1",
 		"@types/node": "^20.11.17",
-		"tsx": "^4.7.1"
+		"dotenv": "^16.4.5",
+		"tsx": "^4.7.1",
+		"vercel": "^32.4.1"
 	}
 }

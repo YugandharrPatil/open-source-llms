@@ -4,17 +4,20 @@ import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
 
 // DEVELOPMENT
-// import { serve } from "@hono/node-server";
+// import { serve } from "@hono/node-server"; //
+// import dotenv from "dotenv";
+// dotenv.config();
 
 // UTILS
 import axios from "axios";
-import pkg from "circular-json";
+// import pkg from "circular-json";
+import { stringify } from "flatted";
 
 export const config = {
 	runtime: "edge",
 };
 
-const { stringify } = pkg;
+// const { stringify } = pkg;
 
 const app = new Hono().basePath("/api");
 app.use("/*", cors());
@@ -47,7 +50,7 @@ async function apiCall(conversation: Conversation[], model: Model) {
 		},
 		{
 			headers: {
-				Authorization: `Bearer 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`,
+				Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
 				"Content-Type": "application/json",
 			},
 		}
@@ -77,7 +80,7 @@ export default handle(app);
 // const port = 5000;
 // console.log(`Server is running on port ${port}`);
 
-// serve({
-// 	fetch: app.fetch,
-// 	port,
-// });
+// // serve({
+// // 	fetch: app.fetch,
+// // 	port,
+// // });
